@@ -27,9 +27,7 @@ def load_updatefolder(request,folderl_id):
     folderl=imagefolder.objects.get(id=folderl_id)
     return render(request,'folderupdate.html',{'folderl':folderl})
 
-def load_affiliation(request):
-    affili=affiliation.objects.get(id=2)
-    return render(request,'affiliation_add.html',{'affili':affili})
+
 
 
 def uploadfile(request):
@@ -72,7 +70,7 @@ def login(request):
 
 
 
-#admin folder name update
+#admin folder update
 
 def update_folder(request,folderu_id):
     if request.method=="POST":
@@ -85,23 +83,18 @@ def update_folder(request,folderu_id):
         return redirect('load_admin_home')
 
 
-def load_blackbelts(request):
-    bths=blackbelt_holders.objects.all()
-    return render(request,'blackbelt.html',{'bths':bths})
 
-def load_addmember(request):
-    return render(request,'addmember.html')
 
 def load_addimages(request):
     return render(request,'addimages.html')
 
-# admin folder create
+# admin folder 
  
 def create_folder(request):
     if request.method=="POST":
         fname=request.POST['file']
 
- #saving data
+ #save
 
         folder=imagefolder(folder_name=fname,)
 
@@ -123,7 +116,7 @@ def load_images(request,folimg_id):
     print(folder_images)
     return render(request,'images.html',{'folder_images':folder_images,'folder':folder})
 
-#adding images to a folder 
+#add images to  folder 
 
 def add_images_folder(request):
     if request.method=='POST':
@@ -162,87 +155,9 @@ def sort_img(request,folimges):
     return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'folimgs':folimgs})
 
 
-# adding the black belt holders
-
-def add_blackbelt_holders(request):
-
-    if request.method=="POST":
-        reg=request.POST['regid']
-        name=request.POST['name']
-        desig=request.POST['desig']
-        img=request.FILES.get('img')
-
- #saving data
-        bth=blackbelt_holders(bth_reg=reg,
-                          bth_name=name,
-                          bth_desig=desig,
-                          bth_image=img)
-
-        bth.save()
-        return redirect('load_blackbelts')
-    else:
-        return redirect('load_addmember')
-
-# admin blackbelt holders update loaad data
-
-def load_bthupdate(request,bthu_id):
-    bth=blackbelt_holders.objects.get(id=bthu_id)
-    return render(request,'bthupdate.html',{'bth':bth})
-
-#admin black belt member update
-
-def bthupdate(request,bthud_id):
-    if request.method=="POST":
-        bth=blackbelt_holders.objects.get(id=bthud_id)
-        bth.bth_reg=request.POST.get('regid')
-        bth.bth_name=request.POST.get('name')
-        bth.bth_desig=request.POST.get('desig')
-        bth.bth_image=request.FILES.get('img')
-        bth.save()
-        return redirect('load_blackbelts')
-    else:
-        return redirect('load_addmember')
-
-
-
-#admin black belt holder delete
-
-def bthdelete(request,bthd_id):
-    bth=blackbelt_holders.objects.filter(id=bthd_id) 
-    bth.delete()
-    return redirect('load_blackbelts') 
-
-
-#home page blackbelt view
-
-def loadbackbelt_page(request):
-    bths=blackbelt_holders.objects.all()
-    return render(request,'blackbeltuser.html',{'bths':bths})
-    
-
-#sending mail
-
-def sending_mail(request):
-    if request.method == 'POST':
-        subject = request.POST['subject'] 
-        message = request.POST['message'] 
-        recipient = request.POST['email'] 
-        try:
-            send_mail(subject, message, recipient,['shebinshaji99@gmail.com'])
-        except BadHeaderError:
-            return
 
 
         
-#load affiliation page
-
-def load_affiliation_page(request):
-    affili=affiliation.objects.get(id=2)
-    return render(request,'affiliation.html',{'affili':affili})
-
-
-def changepassword(request):
-    return render(request,'changepassword.html')
 
 def logout(request):
     request.session["uid"] = ""
