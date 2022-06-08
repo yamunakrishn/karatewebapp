@@ -93,9 +93,6 @@ def load_addimages(request):
 def create_folder(request):
     if request.method=="POST":
         fname=request.POST['file']
-
- #save
-
         folder=imagefolder(folder_name=fname,)
 
         folder.save()
@@ -147,12 +144,16 @@ def load_home_page(request):
     return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'folimgs':folimgs})
 
 
-def sort_img(request,folimges):
-    folimgs=images.objects.filter(folder_id=folimges)
+def sort_img(request,id):
+    print('Hi')
+    folimgs = images.objects.filter(folder_id=id)
+    
     print(folimgs)
-    bgimg=blackbelt_holders.objects.all()
-    folders=imagefolder.objects.all()
+    
+    bgimg = blackbelt_holders.objects.all()
+    folders = imagefolder.objects.all()
     return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'folimgs':folimgs})
+
 
 
 

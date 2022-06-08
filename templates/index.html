@@ -148,23 +148,24 @@
           <ul id="portfolio-flters">
             <li class="filter-active"><a href="{% url 'load_home_page' %}"><b>All</b></a></li>
           {% for folder in folders %}
-            <li><a href="{% url 'sort_img' folder.id %}"><b>{{folder.folder_name}}</b></a></li>
+            <li><a href="/sort_img/{{folder.id}}"><b>{{folder.folder_name}}</b></a></li>
           {% endfor %}
           </ul>
         </div>
       </div>
+    
       
       <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-        {% for img in folimgs %}
+        {% for folimgs in folimgs %}
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
           
             <div class="portfolio-wrap">
             
             <figure>
-              {% if img.image_url %}
-                <img src="{{ img.image_url.url}} " class="img-fluid" alt="">
-                <a href="{{ img.image_url.url}} " data-lightbox="portfolio" data-title="App 1" class="link-preview portfolio-lightbox"><i class="bi bi-plus"></i></a>
-              {% endif %}
+              <!-- {% if folimgs.image_url %} -->
+                <img src="{{ folimgs.image_url.url}} " class="img-fluid" alt="">
+                <a href="{{ folimgs.image_url.url}} " data-lightbox="portfolio" data-title="App 1" class="link-preview portfolio-lightbox"><i class="bi bi-plus"></i></a>
+              <!-- {% endif %} -->
               </figure>
             
             </div>
