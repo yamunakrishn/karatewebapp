@@ -625,7 +625,7 @@ section {
   transition: all 0.3s ease-in-out;
 }
 #portfolio #portfolio-flters li:hover, #portfolio #portfolio-flters li.filter-active {
-  background:#ed3c0d;
+  background: #6565eb;
   color: rgb(247, 251, 249);
 }
 #portfolio #portfolio-flters li:last-child {
@@ -651,6 +651,7 @@ section {
   border-radius: 4px 4px 0 0;
   margin: 0;
 }
+
 #portfolio .portfolio-item figure:hover img {
   opacity: 0.4;
   transition: 0.3s;

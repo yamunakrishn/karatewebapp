@@ -9,9 +9,7 @@
   <title>KARATTE</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-  <!-- Favicons -->
-  <link href="{% static 'img/favicon.png' %}" rel="icon">
-  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -55,11 +53,15 @@
 
   <section id="admin_hero">
     <div class="container">
-      <div class="card" style="width: 24rem;height:12rem;">
-        <div class="card-body" style="background-color:SlateBlue;">
-          <h3 class="card-title" style="padding-top:42px;"><a href="{% url 'load_folder_create' %}" class="card-link" style="color:black;"><b>GALLERY</b></a></h3> 
+      <div class="card" style="width: 16rem;">
+        <center>
+        <div class="card-body">
+          <img src="{% static 'img/portfolio/gallery.jpg' %}" style="width: 100px; height:100px;"><h5 class="card-title"><a href="{% url 'load_folder_create' %}" class="card-link" style="color:black;"><b>Gallery</b></a></h5> 
         </div>
+        </center>
       </div>
+
+      
 
       
 

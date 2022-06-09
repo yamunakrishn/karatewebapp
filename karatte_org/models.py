@@ -2,6 +2,10 @@ from operator import truediv
 from tkinter import CASCADE
 from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
+
+
+
 
 # home background images
 
@@ -19,6 +23,7 @@ class imagefolder(models.Model):
 
 class affiliation(models.Model):
     affiliation_name=models.ImageField(upload_to="file",null=True)
+
 
 
 #images from the folder table

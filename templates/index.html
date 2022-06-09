@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +11,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="{% static 'img/favicon.png' %}" rel="icon">
-  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -80,16 +79,16 @@
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">We are professional</h2>
                 <p class="animate__animated animate__fadeInUp">We provide the best of karate course where one can learn different kinds of techniques and methods to do. Also you can learn about many new things.</p>
-                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                <a href="#" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
               </div>
             </div>
           </div>
-          <div class="carousel-item " style="background-image: url(static/img/hero-carousel/car1.jpeg)">
+          <div class="carousel-item " style="background-image: url(static/img/hero-carousel/car1.jpg)">
             <div class="carousel-container">
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">We are Tops</h2>
                 <p class="animate__animated animate__fadeInUp">The Association has been rendering yeomen service in the socio-economic and cultural upliftment and reconstruction of not only the region of its office but the adjacent areas also. Emphatic focus is made on constructive growth of children in the light of self-discipline, social awareness and responsibilities and social values. The Association takes exalted care in the inculcation of the acknowledged lofty ideals and trails of the pluralistic Indian society by way of the art of Karate and Yoga for mental and physical discipline.</p>
-                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                <a href="#" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
               </div>
             </div>
           </div>
@@ -121,22 +120,21 @@
         </header>
 
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="about-col">
-
-              <iframe width="1300" height="400" 
+            <div class="about-col "style="width:1300px; height:400px;">
+              
+              <!--
                 src="https://www.youtube.com/embed/ksibrix7uU0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-              </iframe>
+              -->
               
             </div>
           </div>
-        </div>
 
       </div>
     </section><!-- End About Us Section -->
 
 
     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="section-bg">
+    <!-- <section id="portfolio" class="section-bg">
       <div class="container" data-aos="fade-up">
 
         <header class="section-header">
@@ -146,26 +144,25 @@
         <div class="row" data-aos="fade-up" data-aos-delay="100">
         <div class=" col-lg-12">
           <ul id="portfolio-flters">
-            <li class="filter-active"><a href="{% url 'load_home_page' %}"><b>All</b></a></li>
+            <li class="filter-active"><a href="{% url 'load_home_page' %}">All</a></li>
           {% for folder in folders %}
-            <li><a href="/sort_img/{{folder.id}}"><b>{{folder.folder_name}}</b></a></li>
+            <li><a href="{% url 'sort_img' folder.id %}">{{folder.folder_name}}</a></li>
           {% endfor %}
           </ul>
         </div>
       </div>
-    
       
       <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-        {% for folimgs in folimgs %}
+        {% for img in folimgs %}
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
           
             <div class="portfolio-wrap">
-            
+           
             <figure>
-              <!-- {% if folimgs.image_url %} -->
-                <img src="{{ folimgs.image_url.url}} " class="img-fluid" alt="">
-                <a href="{{ folimgs.image_url.url}} " data-lightbox="portfolio" data-title="App 1" class="link-preview portfolio-lightbox"><i class="bi bi-plus"></i></a>
-              <!-- {% endif %} -->
+              {% if img.image_url %}
+                <img src="{{ img.image_url.url}} " class="" alt="" style="max-width: 100%;max-height: 100%; display: block;">
+                <a href="{{ img.image_url.url}} " data-lightbox="portfolio"  class="link-preview portfolio-lightbox"><i class="bi bi-plus"></i></a>
+              {% endif %}
               </figure>
             
             </div>
@@ -176,7 +173,375 @@
       </div>
       
       </div>
-    </section><!-- End Portfolio Section -->
+    </section> -->
+    <!-- End Portfolio Section -->
+       <!-- ======= Portfolio Section ======= -->
+       <!-- <section id="portfolio" class="section-bg">
+        <div class="container" data-aos="fade-up">
+  
+          <header class="section-header">
+            <h3 class="section-title">Our Portfolio</h3>
+          </header>
+  
+          <div class="row" data-aos="fade-up" data-aos-delay="100">
+        <div class=" col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="assets/img/portfolio/app1.jpg" class="img-fluid" alt="">
+                <a href="assets/img/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview"><i class="bi bi-plus"></i></a>
+                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
+              </figure>
+  
+              <div class="portfolio-info">
+                <h4><a href="portfolio-details.html">App 1</a></h4>
+                <p>App</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="assets/img/portfolio/web3.jpg" class="img-fluid" alt="">
+                <a href="assets/img/portfolio/web3.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Web 3"><i class="bi bi-plus"></i></a>
+                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
+              </figure>
+  
+              <div class="portfolio-info">
+                <h4><a href="portfolio-details.html">Web 3</a></h4>
+                <p>Web</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="assets/img/portfolio/app2.jpg" class="img-fluid" alt="">
+                <a href="assets/img/portfolio/app2.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="App 2"><i class="bi bi-plus"></i></a>
+                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
+              </figure>
+  
+              <div class="portfolio-info">
+                <h4><a href="portfolio-details.html">App 2</a></h4>
+                <p>App</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="assets/img/portfolio/card2.jpg" class="img-fluid" alt="">
+                <a href="assets/img/portfolio/card2.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Card 2"><i class="bi bi-plus"></i></a>
+                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
+              </figure>
+  
+              <div class="portfolio-info">
+                <h4><a href="portfolio-details.html">Card 2</a></h4>
+                <p>Card</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="assets/img/hero-carousel/car2.jpg" class="img-fluid" alt="">
+                <a href="assets/img/portfolio/car1.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Web 2"><i class="bi bi-plus"></i></a>
+                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
+              </figure>
+  
+              <div class="portfolio-info">
+                <h4><a href="portfolio-details.html">Web 2</a></h4>
+                <p>Web</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="assets/img/portfolio/app3.jpg" class="img-fluid" alt="">
+                <a href="assets/img/portfolio/app3.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="App 3"><i class="bi bi-plus"></i></a>
+                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
+              </figure>
+  
+              <div class="portfolio-info">
+                <h4><a href="portfolio-details.html">App 3</a></h4>
+                <p>App</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="assets/img/portfolio/card1.jpg" class="img-fluid" alt="">
+                <a href="assets/img/portfolio/card1.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Card 1"><i class="bi bi-plus"></i></a>
+                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
+              </figure>
+  
+              <div class="portfolio-info">
+                <h4><a href="portfolio-details.html">Card 1</a></h4>
+                <p>Card</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="assets/img/portfolio/card3.jpg" class="img-fluid" alt="">
+                <a href="assets/img/portfolio/card3.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Card 3"><i class="bi bi-plus"></i></a>
+                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
+              </figure>
+  
+              <div class="portfolio-info">
+                <h4><a href="portfolio-details.html">Card 3</a></h4>
+                <p>Card</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="assets/img/portfolio/web1.jpg" class="img-fluid" alt="">
+                <a href="assets/img/portfolio/web1.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Web 1"><i class="bi bi-plus"></i></a>
+                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
+              </figure>
+  
+              <div class="portfolio-info">
+                <h4><a href="portfolio-details.html">Web 1</a></h4>
+                <p>Web</p>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+  
+        </div>
+      </section> -->
+
+
+
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 10px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<!-- MAIN (Center website) -->
+<div class="main">
+
+
+
+
+<h2>Gallery</h2>
+
+<div id="portfolio">
+  <button class="btn active" onclick="filterSelection('all')"> All</button>
+  <button class="btn" onclick="filterSelection('nature')">17th National Karate.</button>
+  <button class="btn" onclick="filterSelection('cars')">14th National Yoga.</button>
+  <!-- <button class="btn" onclick="filterSelection('people')"> People</button> -->
+</div>
+
+<!-- Portfolio Gallery Grid -->
+<div class="row">
+  <div class="column nature">
+    <div class="content">
+      <img src="{% static 'img/hero-carousel/car2.jpg' %}" alt="Mountains" style="width:100%">
+      
+    </div>
+  </div>
+  <div class="column nature">
+    <div class="content">
+    <img src="{% static 'img/hero-carousel/karate3.jpg' %}" alt="Lights" style="width:100%">
+      
+    </div>
+  </div>
+  <!-- <div class="column nature">
+    <div class="content">
+    <img src="{% static 'img/hero-carousel/karate1.jpg' %}" alt="Nature" style="width:100%">
+      
+    </div>
+  </div> -->
+  
+  <div class="column cars">
+    <div class="content">
+      <img src="{% static 'img/hero-carousel/yoga1.jpg' %}" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+  <!-- <div class="column cars">
+    <div class="content">
+    <img src="/w3images/cars2.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div> -->
+  <!-- <div class="column cars">
+    <div class="content">
+    <img src="/w3images/cars3.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div> -->
+
+  <!-- <div class="column people">
+    <div class="content">
+      <img src="/w3images/people1.jpg" alt="Car" style="width:100%">
+      
+    </div> -->
+  <!-- </div>
+  <div class="column people">
+    <div class="content">
+    <img src="/w3images/people2.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="{% static 'img/hero-carousel/karate2.jpg' %}"alt="Car" style="width:100%">
+      
+    </div> -->
+  <!-- </div> -->
+<!-- END GRID -->
+</div>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="section-bg">
@@ -234,9 +599,10 @@
               <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
             </div>
             <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">{{messages}}Your message has been sent. Thank you!</div>
+              <div>
+                <h6 style="color:green">{{message}}</h6> 
+              </div>
+              
             </div>
             
             <div class="text-center"><button type="submit">Send Message</button></div>
@@ -323,14 +689,13 @@
   <!-- <div id="preloader"></div> -->
 
   <!-- Vendor JS Files -->
-  <script src="{% static 'vendor/purecounter/purecounter.js' %}"></script>
+  
   <script src="{% static 'vendor/aos/aos.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
-  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
   <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-  <script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>
-  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+  
+  
 
   <!-- Template Main JS File -->
   <script src="{% static 'js/main.js' %}"></script>

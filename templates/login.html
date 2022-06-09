@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
 <head>
-<title>Log in</title>
+  
+<title>Admin Login</title>
     <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
     <link rel="stylesheet" type="text/css" href="/static/admin/css/nav_sidebar.css">
     <script src="/static/admin/js/nav_sidebar.js" defer=""></script>
@@ -22,12 +23,8 @@
     
     <div id="header">
         <div id="branding">
-        
-            <h1 id="site-name"><a href="/admin/">Admin</a></h1>
-
-        </div>
-        
-        
+            <h1 id="site-name"><a href="{% url 'login' %}" >Admin</a></h1>
+        </div>   
     </div>
     
     <!-- END Header -->
@@ -59,8 +56,15 @@
 
   <div class="submit-row">
     <input type="submit" value="Log in">
+  </div><br>
+  <center>
+  <div class="form-row">
+    <a href="#">Forgot password?</a>
+  </div><br>
+  <div class="form-row">
+    <a href="{% url 'load_home_page' %}">Back to Home</a>
   </div>
-  
+</center>
 </form>
 
 </div>

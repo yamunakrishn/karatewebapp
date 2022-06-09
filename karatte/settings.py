@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'django_cleanup.apps.CleanupConfig',
     'karatte_org',
+    
 ]
 
 MIDDLEWARE = [
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'karatte.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'karateweb',
+        'NAME': 'karatewebapp',
         'USER':'root',
         'PASSWORD':'',
         'HOST':'localhost',

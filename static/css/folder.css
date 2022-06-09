@@ -2,18 +2,16 @@ body {
     background: #fff;
     color: #666666;
     font-family: "Open Sans", sans-serif;
-    background-color:lightgray;
   }
   
   a {
-    color:black;
+    color: #18d26e;
     transition: 0.5s;
     text-decoration: none;
-    
   }
   
   a:hover, a:active, a:focus {
-    color:blue;
+    color: #18d36e;
     outline: none;
     text-decoration: none;
   }

@@ -9,10 +9,7 @@
   <!--<title>KARATTE</title>-->
   <meta content="" name="description">
   <meta content="" name="keywords">
-  <!-- Favicons -->
-  <link href="{% static 'img/favicon.png' %}" rel="icon">
-  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
-
+  
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
@@ -25,9 +22,16 @@
   <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <link href="{% static 'css/folder.css' %}" rel="stylesheet">
-</head>
 
+
+</head>
+<style>
+  body{
+    background-color: aquamarine;
+  }
+</style>
 <body>
+  
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
@@ -60,10 +64,10 @@
       
       <div class="row pt-1">
         <div class="col-4 pt-1">
-          <input type="text"  placeholder="Folder Name" name="file">
+          <input type="text" multiple placeholder="Folder name" name="file">
         </div>
-        <div class="col-3">
-          <button type="submit" class="btn text-light btn-primary"  formaction="{% url 'create_folder' %}">Save</button> 
+        <div class="col-3 pt-1">
+          <button type="submit" class="btn-primary" formaction="{% url 'create_folder' %}">Create</button> 
         </div>
       </div>   
     </form>
@@ -78,11 +82,11 @@
         <div class="row">
           {% for folder in folders %}
             <div class="col-2">
-                <div class="card pt-2" style="width:11rem; background-color:MediumSeaGreen;">
+                <div class="card pt-2" style="width:11rem; background-color:lightgreen;">
                     <div class="card-body">
-                      <a href="{%url 'load_images' folder.id %}"><h5 class="card-title"><b>{{folder.folder_name}}</b></h5></a><br>
-                      <a href="{%url 'load_updatefolder' folder.id %}" class="card-link">Update</a>
-                      <a href="{% url 'deletefolder' folder.id %}" class="card-link" style="padding-left:3px;">Delete</a>
+                      <a href="{%url 'load_images' folder.id %}"><h5 class="card-title text-dark"><b>{{folder.folder_name}}</b></h5></a>
+                      <a href="{%url 'load_updatefolder' folder.id %}" class="card-link text-dark">Update</a>
+                      <a href="{% url 'deletefolder' folder.id %}" onclick="return confirm('Are you sure you want to delete?')" class="card-link text-dark">Delete</a>
                     </div>
                   </div>
             </div>
