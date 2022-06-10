@@ -87,7 +87,12 @@
               </div>
               <center>
                     <div class="card-body">
-                        <a href="{% url 'deleteimg' img.id %}"  onclick="return confirm('Are you sure you want to delete?')" class="card-link text-dark">Delete</a>
+                        <a href="{% url 'deleteimg' img.id %}"  onclick="return confirm('Are you sure you want to delete?')" class="card-link text-dark"><b>Delete
+
+                          
+                        </b></a>
+                        
+                         <!-- <button type="submit" href="{% url 'deleteimg' img.id %}" class="btn btn-warning" onclick="return confirm('Are you sure you want to delete?')" class="card-link text-dark">Delete</button> -->
                     </div> 
                   </center>
                 

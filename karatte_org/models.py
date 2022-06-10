@@ -32,7 +32,17 @@ class images(models.Model):
     folder_id=models.ForeignKey(imagefolder,on_delete=models.CASCADE,null=True,blank=True)
     image_url=models.ImageField(upload_to="folderimages/", null=True)
 
+class carousel(models.Model):
+    image=models.ImageField(upload_to="load_home_page/", null=True)
+    title=models.CharField(max_length=150)
+    subtitle=models.CharField(max_length=150)
+
+
+    def __str__(self):
+        return self.title
+
     
+   
 
 
 

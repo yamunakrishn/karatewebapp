@@ -1,3 +1,4 @@
+
 from atexit import register
 from django.http import BadHeaderError
 from django.shortcuts import redirect, render
@@ -11,8 +12,9 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.core.mail import send_mail,BadHeaderError
 
-#load admin home
 
+#load admin home
+fid=0
 def adminlogin(request):
     return render(request,'login.html')
 
@@ -147,19 +149,29 @@ def deleteimg(request,img_id):
 # load home page
 
 def load_home_page(request):
+    global fid
+    if fid == 0:
+        folimges=images.objects.all()
+    else:
+        folimges=images.objects.filter(folder_id=fid)
+        fid =0
+
     bgimg=blackbelt_holders.objects.all()
     folders=imagefolder.objects.all()
-    folimgs=images.objects.all()
     
-    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'folimgs':folimgs})
+    
+    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'folimges':folimges})
 
 
 def sort_img(request,folimges):
-    folimgs=images.objects.filter(folder_id=folimges)
-    print(folimgs)
-    bgimg=blackbelt_holders.objects.all()
-    folders=imagefolder.objects.all()
-    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'folimgs':folimgs})
+    global fid
+    fid=folimges
+    return redirect('load_home_page')
+    # folimgs=images.objects.filter(folder_id=folimges)
+    # print(folimgs)
+    # bgimg=blackbelt_holders.objects.all()
+    # folders=imagefolder.objects.all()
+    # return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'folimgs':folimgs})
 
 
 # adding the black belt holders
@@ -248,3 +260,8 @@ def logout(request):
     request.session["uid"] = ""
     auth.logout(request)
     return redirect('load_home_page')
+
+
+def carousel(request):
+    if request.method=='POST':
+        return redirect('carousel')

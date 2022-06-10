@@ -11,7 +11,7 @@ body {
   }
   
   a:hover, a:active, a:focus {
-    color: #18d36e;
+    color:blue;
     outline: none;
     text-decoration: none;
   }
@@ -43,10 +43,9 @@ body {
     
 }
 .card{
-  box-shadow: 2px 4px 3px;
-  margin-left:3px;
-  margin-right:3px;
-  border-radius: 8px;
+   margin-left:3px;
+   margin-right:3px;
+   border-radius: 8px;
 }
 #admin_folders h4{
   text-align: center;

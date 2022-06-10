@@ -10,6 +10,7 @@ from django.contrib import admin
 urlpatterns =[ 
                path('',views.load_home_page,name='load_home_page'),
                path('sort_img/<int:folimges>',views.sort_img,name='sort_img'),
+               path('carousel',views.carousel,name='carousel'),
                
                path('adminlogin',views.adminlogin,name='adminlogin'),
                path('login',views.login,name='login'),

@@ -81,12 +81,12 @@
         
         <div class="row">
           {% for folder in folders %}
-            <div class="col-2">
-                <div class="card pt-2" style="width:11rem; background-color:lightgreen;">
+            <div class="col-4">
+                <div class="card pt-2" style="width:12rem; background-color:lightgreen;">
                     <div class="card-body">
-                      <a href="{%url 'load_images' folder.id %}"><h5 class="card-title text-dark"><b>{{folder.folder_name}}</b></h5></a>
-                      <a href="{%url 'load_updatefolder' folder.id %}" class="card-link text-dark">Update</a>
-                      <a href="{% url 'deletefolder' folder.id %}" onclick="return confirm('Are you sure you want to delete?')" class="card-link text-dark">Delete</a>
+                      <a href="{%url 'load_images' folder.id %}"><h5 class="card-title text-dark"><b>{{folder.folder_name}}</b></h5></a><br>
+                      <a href="{%url 'load_updatefolder' folder.id %}" class="card-link text-dark"><b>Update</b></a>
+                      <a href="{% url 'deletefolder' folder.id %}" onclick="return confirm('Are you sure you want to delete?')" class="card-link text-dark"><b>Delete</b></a>
                     </div>
                   </div>
             </div>

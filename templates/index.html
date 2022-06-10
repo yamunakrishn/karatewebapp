@@ -78,7 +78,7 @@
             <div class="carousel-container">
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">We are professional</h2>
-                <p class="animate__animated animate__fadeInUp">We provide the best of karate course where one can learn different kinds of techniques and methods to do. Also you can learn about many new things.</p>
+                <p class="animate__animated animate__fadeInUp">We provide the best of karate course where one can learn different kinds of<br> techniques and methods to do. Also you can learn about many new things.</p>
                 <a href="#" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
               </div>
             </div>
@@ -87,7 +87,7 @@
             <div class="carousel-container">
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">We are Tops</h2>
-                <p class="animate__animated animate__fadeInUp">The Association has been rendering yeomen service in the socio-economic and cultural upliftment and reconstruction of not only the region of its office but the adjacent areas also. Emphatic focus is made on constructive growth of children in the light of self-discipline, social awareness and responsibilities and social values. The Association takes exalted care in the inculcation of the acknowledged lofty ideals and trails of the pluralistic Indian society by way of the art of Karate and Yoga for mental and physical discipline.</p>
+                <p class="animate__animated animate__fadeInUp">The Association has been rendering yeomen service in the socio-economic and cultural <br> upliftment and reconstruction of not only the region of its office but the adjacent areas. </p>
                 <a href="#" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
               </div>
             </div>
@@ -420,25 +420,66 @@ h1 {
 
 <!-- MAIN (Center website) -->
 <div class="main">
+  <section id="portfolio" class="section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-header">
+        <h3 class="section-title">Our Gallery</h3>
+      </header>
+      <div class="row" data-aos="fade-up" data-aos-delay="100">
+        <div class=" col-lg-12">
+          <ul id="portfolio-flters">
+            <li class="filter-active"><a href="{% url 'load_home_page' %}">All</a></li>
+          {% for folder in folders %}
+            <li><a href="{% url 'sort_img' folder.id %}">{{folder.folder_name}}</a></li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
 
 
 
-
-<h2>Gallery</h2>
-
-<div id="portfolio">
+<!-- <div id="portfolio">
   <button class="btn active" onclick="filterSelection('all')"> All</button>
   <button class="btn" onclick="filterSelection('nature')">17th National Karate.</button>
-  <button class="btn" onclick="filterSelection('cars')">14th National Yoga.</button>
+  <button class="btn" onclick="filterSelection('cars')">14th National Yoga.</button> -->
   <!-- <button class="btn" onclick="filterSelection('people')"> People</button> -->
-</div>
+<!-- </div> -->
 
 <!-- Portfolio Gallery Grid -->
-<div class="row">
+<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+{% for v in  folimges %}
+  
+  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+
+    <div class="portfolio-wrap">
+      <figure>
+      {% if v.image_url %}
+        <img src="{{v.image_url.url}}" class="img-fluid" alt="">
+        <a href="{{v.image_url.url}}" data-lightbox="portfolio" data-title="App 1" class="link-preview"><i class="bi bi-plus"></i></a>
+        
+      {% endif %}
+      </figure>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+</section>
+</div>
+
+  
+    
+      
+        
+      
+
+
+<!-- <div class="row">
   <div class="column nature">
     <div class="content">
       <img src="{% static 'img/hero-carousel/car2.jpg' %}" alt="Mountains" style="width:100%">
-      
+      <a href="{% static 'img/hero-carousel/car2.jpg' %}" data-lightbox="portfolio" data-title="App 1" class="link-preview"><i class="bi bi-plus"></i></a>
     </div>
   </div>
   <div class="column nature">
@@ -446,7 +487,7 @@ h1 {
     <img src="{% static 'img/hero-carousel/karate3.jpg' %}" alt="Lights" style="width:100%">
       
     </div>
-  </div>
+  </div> -->
   <!-- <div class="column nature">
     <div class="content">
     <img src="{% static 'img/hero-carousel/karate1.jpg' %}" alt="Nature" style="width:100%">
@@ -454,12 +495,12 @@ h1 {
     </div>
   </div> -->
   
-  <div class="column cars">
+  <!-- <div class="column cars">
     <div class="content">
-      <img src="{% static 'img/hero-carousel/yoga1.jpg' %}" alt="Car" style="width:100%">
+      <img src="{% static 'img/hero-carousel/yoga3.jpg' %}" alt="Car" style="width:100%;">
       
     </div>
-  </div>
+  </div> -->
   <!-- <div class="column cars">
     <div class="content">
     <img src="/w3images/cars2.jpg" alt="Car" style="width:100%">
