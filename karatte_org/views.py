@@ -1,5 +1,6 @@
 
 from atexit import register
+from re import A
 from django.http import BadHeaderError
 from django.shortcuts import redirect, render
 from urllib import request
@@ -144,8 +145,6 @@ def deleteimg(request,img_id):
     image.delete()
     return redirect('load_folder_create')
 
-
-
 # load home page
 
 def load_home_page(request):
@@ -158,9 +157,10 @@ def load_home_page(request):
 
     bgimg=blackbelt_holders.objects.all()
     folders=imagefolder.objects.all()
+    a=carousel.objects.all()
     
     
-    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'folimges':folimges})
+    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'folimges':folimges,'al':a})
 
 
 def sort_img(request,folimges):
@@ -232,36 +232,31 @@ def loadbackbelt_page(request):
     return render(request,'blackbeltuser.html',{'bths':bths})
     
 
-#sending mail
-
-def sending_mail(request):
-    if request.method == 'POST': 
-        recipient = request.POST['email'] 
-        message=" THANKS YOU  for Contacting Us! Our Team will contact you Soon!..."
-        sendsubject=" JKMO INDIA"
-        try:
-            respons=send_mail(sendsubject, message,settings.EMAIL_HOST_USER,[recipient])
-            return render (request,'index.html',{'message':message})
-            
-        except BadHeaderError:
-            return()
-
-
-        
-#load affiliation page
-
-def load_affiliation_page(request):
-    affili=affiliation.objects.get(id=2)
-    return render(request,'affiliation.html',{'affili':affili})
-
-
-
 def logout(request):
     request.session["uid"] = ""
     auth.logout(request)
     return redirect('load_home_page')
 
+def load_carousel(request):
+    a=carousel.objects.all()
+    return render(request,'carousel.html',{ 'al':a})
 
-def carousel(request):
+def carouselimg(request):
+    a=carousel.objects.all()
+    return render(request,'index.html',{ 'al':a})
+
+def add_carousel_images(request):
     if request.method=='POST':
-        return redirect('carousel')
+        title=request.POST['title']
+        subtitle=request.POST['subtitle']
+        carimage=request.FILES.get('carimgss')
+        
+        carousel.objects.create(
+                title=title,subtitle=subtitle,carimage=carimage
+                )
+        return redirect('load_carousel')
+
+def deletecarouselimg(request,carid_id):
+    carimage=carousel.objects.get(id=carid_id)
+    carimage.delete()
+    return redirect('load_carousel')
