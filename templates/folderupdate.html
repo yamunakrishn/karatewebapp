@@ -1,4 +1,4 @@
-{% load static %}
+<!-- {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,10 +10,10 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
  
-  <!-- Google Fonts -->
+  
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
+ 
   <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -30,7 +30,7 @@
 </style>
 <body>
 
-  <!-- ======= Header ======= -->
+  
   <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
     <div class="container-fluid">
 
@@ -38,6 +38,82 @@
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
           <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
           <h5 class="text-light" >Admin Dashboard</h5>
+
+          <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
+            
+            <ul>
+              <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+  <section id="admin_hero">
+    <div class="container">
+    <form action="{% url 'update_folder' folderl.id %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <center>
+      <h3>Edit Folder Name:</h3>
+    </center>
+      <div class="row pt-1">
+        <div class="col-4 pt-1" >
+          <input type="text" multiple placeholder="Folder name" name="file" value="{{folderl.folder_name}}">
+        </div>
+        <div class="col-3 3-1">
+          <button type="submit" class="btn-primary">Update</button>
+        </div>
+      </div>  
+    </form>
+    </div> 
+  </section>
+</body></html> -->
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>KARATTE</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/folder.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-xl-11 d-flex align-items-center justify-content-between">
+          <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
+          <h3 >Admin Dashboard</h3>
 
           <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
             
@@ -57,15 +133,13 @@
     <div class="container">
     <form action="{% url 'update_folder' folderl.id %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      <center>
-      <h3>Edit Folder Name:</h3>
-    </center>
+      <h5>Update Folder Name :</h5>
       <div class="row pt-1">
-        <div class="col-4 pt-1" >
-          <input type="text" multiple placeholder="Folder name" name="file" value="{{folderl.folder_name}}">
+        <div class="col-6 pt-1" >
+          <input type="text" multiple placeholder="Change file name" name="file" value="{{folderl.folder_name}}">
         </div>
-        <div class="col-3 3-1">
-          <button type="submit" class="btn-primary">Update</button>
+        <div class="col-6 pt-1">
+          <button type="submit" class="btn-primary">Update File Name</button>
         </div>
       </div>  
     </form>

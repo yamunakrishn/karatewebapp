@@ -1,4 +1,4 @@
-{% load static %}
+<!-- {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,10 +10,10 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Google Fonts -->
+  
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
+  
   <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -35,7 +35,7 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
+  
   <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
     <div class="container-fluid">
 
@@ -51,13 +51,13 @@
               <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
-          </nav><!-- .navbar -->
+          </nav>
         </div>
       </div>
     </div>
-  </header><!-- End Header -->
+  </header>
 
-  <!--======hero =======-->
+  
 
   <section id="admin_hero">
     <form  method="post" enctype="multipart/form-data">
@@ -80,26 +80,9 @@
             </div>
         </div>
     </div>
-    <!-- <div class="container">
-        <hr>
-        <div class="row pt-1">
-        {% for i in al %}
-          <div class="col-3">
- 
+    
                
-                    <div class="card-body">
-                    
-                      <img src="{{ i.carimage.url }}" alt="">
-                        <a href="#"  onclick="return confirm('Are you sure you want to delete?')" class="card-link text-dark"><b>Delete
-                       </b></a>    
-                        
-                    </div> 
-               
-          </div>
-        {% endfor %}
-        
-        </div>
-    </div> -->
+          
 
     <div class="container">
       <hr>
@@ -136,6 +119,120 @@
 
   
 
+  
+  
+</body>
+</html> -->
+
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Karatte</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/folder.css' %}" rel="stylesheet">
+
+  
+
+
+</head>
+<style>
+  body{
+    background-color: rgb(250, 251, 251);
+  }
+</style>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-xl-11 d-flex align-items-center justify-content-between">
+          <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
+          <h3 class="text-light" >Admin Dashboard</h3>
+
+          <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
+            
+            <ul>
+              <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+        </div>
+      </div>
+    </div>
+  </header><!-- End Header -->
+
+  <!--======hero =======-->
+
+  <section id="admin_hero">
+    <form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+      <div class="row pt-1">
+        <div class="col-4 pt-1">
+          <input type="file"   accept="carouselimages/"  name="carimgss" required>
+        </div>
+        <div class="col-3 pt-1">
+            <input type="text" placeholder="Title"  name="title" required>
+        </div>
+        <div class="col-3 pt-1">
+          <input type="text" placeholder="Subtitle" name="subtitle" required>
+        </div>
+        <div class="col-2 pt-1">
+          <button type="submit" class="btn-primary" formaction="{% url 'add_carousel_images' %}">Add</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <hr>
+      <div class="row pt-1">
+      {% for i in al %}
+        <div class="col-3">
+          <div class="card mt-3" style="width: 16rem; height:19rem;">
+            <img  class="card-img-top" src="{{ i.carimage.url }}" style="height:135px;" alt="Card image cap">
+              
+            <div class="card-body">
+
+              <h4 class="card-title text-dark">{{ i.title }}</h4>
+              <p class="card-text">{{ i.subtitle }}</p>
+              <a href="{% url 'load_updatecarosel' i.id %}"  class="btn btn-success mb-2" style="width:40%; ">Update</a>
+              <a href="{% url 'deletecarouselimg' i.id %}"  onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger mb-2" style="width:40%;">Delete</a>
+            
+            </div>
+          </div>      
+        </div>
+       {% endfor %}
+      </div>
+    </div>
+   </form>
+
+  </section>
   
   <!--======end hero====-->
 </body>

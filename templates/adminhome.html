@@ -1,4 +1,4 @@
-{% load static %}
+<!-- {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,14 +8,14 @@
 
   <title>KARATTE</title>
   <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta content="" name="keywords"> -->
   
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet"> -->
 
   <!-- Vendor CSS Files -->
-  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <!-- <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
@@ -25,10 +25,10 @@
   <link href="{% static 'css/admin.css' %}" rel="stylesheet">
 </head>
 
-<body>
+<body> -->
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
+  <!-- <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
     <div class="container-fluid">
 
       <div class="row justify-content-center align-items-center">
@@ -42,16 +42,18 @@
               <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
               <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
             </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-          </nav><!-- .navbar -->
-        </div>
+            <i class="bi bi-list mobile-nav-toggle"></i> -->
+          <!-- </nav> -->
+          <!-- .navbar -->
+        <!-- </div>
       </div>
     </div>
-  </header><!-- End Header -->
+  </header> -->
+  <!-- End Header -->
 
   <!--======hero =======-->
 
-  <section id="admin_hero">
+  <!-- <section id="admin_hero">
     <div class="container">
       <div class="card" style="width: 16rem;">
         <center>
@@ -76,6 +78,111 @@
 
 
     </div>
+  </section> -->
+
+  
+  <!--======end hero====-->
+<!-- </body>
+</html> -->
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>KARATTE</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Favicons -->
+  <link href="{% static 'img/ki.png' %}" rel="icon">
+  <link href="{% static 'img/ki.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/admin.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+
+<header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-xl-11 d-flex align-items-center justify-content-between">
+          <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
+          <h3 >Admin Dashboard</h3>
+
+          <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
+            
+            <ul>
+              <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+        </div>
+      </div>
+    </div>
+  </header><!-- End Header -->
+
+  <!--======hero =======-->
+
+  <section id="admin_hero">
+    <div class="container">
+      <div class="row" style="width: 100%;">
+        <div class="col col-lg-3">
+          <a href="{% url 'load_folder_create' %}"><img src="{% static 'img/folder.png' %}" style="width: 80px; height:80px;border-radius:40%;">
+          <h5>Folder/Images</h5></a>
+        </div>
+
+        <div class=" col col-lg-3">
+         <a href="{% url 'load_blackbelts' %}"> <img src="{% static 'img/Black_belt_tied.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
+         <h5>BlackBelt Holders</h5></a>
+        </div>
+
+        <div class=" col col-lg-3">
+          <a href="{% url 'load_affiliation' %}"><img src="{% static 'img/affili.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
+          <h5>Affilation</h5></a>
+        </div>
+        <div class=" col col-lg-3">
+          <a href="{% url 'load_carousel' %}"><img src="{% static 'img/hero-carousel/bg1.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
+          <h5>Carousel</h5></a>
+        </div>
+     </div>
+    </div>
+  </section>
+
+  <section>
+  
+    <div class="container" style="height:30vh; margin-top:15vh;">
+      <hr>
+      <h3>Upload Video </h3><br><br>
+      <form method="post" action="{% url 'uploadvideo' %}">
+        {% csrf_token %}
+      <div class="input-group mb-3">
+        <input type="text" name="videofile"class="form-control" placeholder="Past Your Video URL Here" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit">update video</button>
+        </div>
+      </div>
+    </form>
+    </div>
+  
   </section>
 
   
