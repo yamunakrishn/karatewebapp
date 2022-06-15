@@ -151,7 +151,7 @@
           <ul id="portfolio-flters">
             <li class="filter-active"><a href="{% url 'load_home_page' %}" >All</a></li>
           {% for folder in folders %}
-            <li><a href="{% url 'sort_img' folder.id %}">{{folder.folder_name}}</a></li>
+            <li><button class="btn" id="sort">{{folder.folder_name}}</button></li>
           {% endfor %}
           </ul>
         </div>
@@ -331,7 +331,7 @@
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
   <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   
 
   <!-- Template Main JS File -->
