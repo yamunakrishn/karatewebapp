@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
 <head>
-  
-<title>Admin Login</title>
+  <link href="{% static 'img/ki.png' %}" rel="icon">
+  <link href="{% static 'img/ki.png' %}" rel="apple-touch-icon">
+<title>Log in | Site Admin</title>
     <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
     <link rel="stylesheet" type="text/css" href="/static/admin/css/nav_sidebar.css">
     <script src="/static/admin/js/nav_sidebar.js" defer=""></script>
@@ -56,15 +57,11 @@
 
   <div class="submit-row">
     <input type="submit" value="Log in">
-  </div><br>
-  <center>
-  <div class="form-row">
-    <a href="#">Forgot password?</a>
-  </div><br>
-  <div class="form-row">
-    <a href="{% url 'load_home_page' %}">Back to Home</a>
   </div>
-</center>
+  <div class="form-row ">
+    <a href="{% url 'password_reset' %}" style="margin-right:8vh;">Forgot password</a>
+    <a href="{% url 'load_home_page' %}" style="margin-left:6vh;">Back to Home</a>
+  </div>
 </form>
 
 </div>

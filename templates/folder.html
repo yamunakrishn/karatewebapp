@@ -1,106 +1,3 @@
-<!-- {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-  
-  
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
-
-  
-  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  <link href="{% static 'css/folder.css' %}" rel="stylesheet">
-
-
-</head>
-<style>
-  body{
-    background-color: aquamarine;
-  }
-</style>
-<body>
-  
-
-  
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
-    <div class="container-fluid">
-
-      <div class="row justify-content-center align-items-center">
-        <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
-          <h3 class="text-light" >Admin Dashboard</h3>
-
-          <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
-            
-            <ul>
-              <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
-              <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-  
-
-  <section id="admin_hero">
-    <div class="container">
-    <form method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      
-      <div class="row pt-1">
-        <div class="col-4 pt-1">
-          <input type="text" multiple placeholder="Folder name" name="file">
-        </div>
-        <div class="col-3 pt-1">
-          <button type="submit" class="btn-primary" formaction="{% url 'create_folder' %}">Create</button> 
-        </div>
-      </div>   
-    </form>
-    </div>
-  </section>
-
-  <hr>
-
-  <section id="admin_folders">
-    <div class="container">
-        
-        <div class="row">
-          {% for folder in folders %}
-            <div class="col-4">
-                <div class="card pt-2" style="width:12rem; background-color:lightgreen;">
-                    <div class="card-body">
-                      <a href="{%url 'load_images' folder.id %}"><h5 class="card-title text-dark"><b>{{folder.folder_name}}</b></h5></a><br>
-                      <a href="{%url 'load_updatefolder' folder.id %}" class="card-link text-dark"><b>Update</b></a>
-                      <a href="{% url 'deletefolder' folder.id %}" onclick="return confirm('Are you sure you want to delete?')" class="card-link text-dark"><b>Delete</b></a>
-                    </div>
-                  </div>
-            </div>
-          {% endfor %}
-        </div>
-    </div>
-  </section>
-
-  
-  
-</body>
-</html> -->
-
-
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -109,10 +6,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  
+  <!--<title>KARATTE</title>-->
   <meta content="" name="description">
   <meta content="" name="keywords">
-  
+  <!-- Favicons -->
+  <link href="{% static 'img/ki.png' %}" rel="icon">
+  <link href="{% static 'img/ki.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -138,7 +37,7 @@
 
       <div class="row justify-content-center align-items-center">
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
+          <a href="#" class="logo1"> <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90%;width:40px; height:40px;"></a>
           <h3 >Admin Dashboard</h3>
 
           <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
@@ -162,7 +61,7 @@
         <div class="input-group mb-2">
           <input type="text" class="form-control" placeholder="Create file name" name="file" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
           <div class="input-group-append">
-            <button class="btn btn-outline-primary mt-2 bg-primary text-light" formaction="{% url 'create_folder' %}" type="submit">Create File Name</button>
+            <button class="btn btn-outline-secondary mt-2" formaction="{% url 'create_folder' %}" type="submit">Create File Name</button>
           </div>
         </div>  
       </form>
@@ -195,5 +94,6 @@
 
   
   <!--======end hero====-->
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

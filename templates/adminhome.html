@@ -1,91 +1,3 @@
-<!-- {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>KARATTE</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords"> -->
-  
-
-  <!-- Google Fonts -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet"> -->
-
-  <!-- Vendor CSS Files -->
-  <!-- <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  <link href="{% static 'css/admin.css' %}" rel="stylesheet">
-</head>
-
-<body> -->
-
-  <!-- ======= Header ======= -->
-  <!-- <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
-    <div class="container-fluid">
-
-      <div class="row justify-content-center align-items-center">
-        <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
-          <h3 class="text-light">Admin Dashboard</h3>
-
-          <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
-            
-            <ul>
-              <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
-              <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i> -->
-          <!-- </nav> -->
-          <!-- .navbar -->
-        <!-- </div>
-      </div>
-    </div>
-  </header> -->
-  <!-- End Header -->
-
-  <!--======hero =======-->
-
-  <!-- <section id="admin_hero">
-    <div class="container">
-      <div class="card" style="width: 16rem;">
-        <center>
-        <div class="card-body">
-          <img src="{% static 'img/portfolio/gallery.jpg' %}" style="width: 100px; height:100px;"><h5 class="card-title"><a href="{% url 'load_folder_create' %}" class="card-link" style="color:black;"><b>Gallery</b></a></h5> 
-        </div>
-        </center>
-      </div>
-      <div class="card" style="width: 16rem;">
-        <center>
-        <div class="card-body">
-          <img src="{% static 'img/portfolio/carousel1.jpg' %}" style="width: 150px; height:100px;"><h5 class="card-title"><a href="{% url 'load_carousel' %}" class="card-link" style="color:black;"><b>Carousel</b></a></h5> 
-        </div>
-        
-        </center>
-      </div>
-
-
-      
-
-      
-
-
-    </div>
-  </section> -->
-
-  
-  <!--======end hero====-->
-<!-- </body>
-</html> -->
-
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -97,7 +9,9 @@
   <title>KARATTE</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
- 
+  <!-- Favicons -->
+  <link href="{% static 'img/ki.png' %}" rel="icon">
+  <link href="{% static 'img/ki.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -122,7 +36,7 @@
 
       <div class="row justify-content-center align-items-center">
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
+          <a href="#" class="logo1"> <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90%;width:40px; height:40px;"></a>
           <h3 >Admin Dashboard</h3>
 
           <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
@@ -142,24 +56,24 @@
 
   <section id="admin_hero">
     <div class="container">
-      <div class="row" style="width: 100%;">
-        <div class="col col-lg-3">
+      <div class="row m-2" style="width: 100%;">
+        <div class="col-5 col-md-4 col-lg-3">
           <a href="{% url 'load_folder_create' %}"><img src="{% static 'img/folder.png' %}" style="width: 80px; height:80px;border-radius:40%;">
-          <h5>Folder/Images</h5></a>
+          <h6>Folders</h6></a>
         </div>
 
-        <div class=" col col-lg-3">
+        <div class="col-5 col-md-4 col-lg-3">
          <a href="{% url 'load_blackbelts' %}"> <img src="{% static 'img/Black_belt_tied.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
-         <h5>BlackBelt Holders</h5></a>
+         <h6>BlackBelt Holders</h6></a>
         </div>
 
-        <div class=" col col-lg-3">
+        <div class="col-5 col-md-4 col-lg-3">
           <a href="{% url 'load_affiliation' %}"><img src="{% static 'img/affili.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
-          <h5>Affilation</h5></a>
+          <h6>Affilation</h6></a>
         </div>
-        <div class=" col col-lg-3">
-          <a href="{% url 'load_carousel' %}"><img src="{% static 'img/hero-carousel/bg1.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
-          <h5>Carousel</h5></a>
+        <div class="col-5 col-md-4 col-lg-3">
+          <a href="{% url 'load_carousel' %}"><img src="{% static 'img/bgcaro.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
+          <h6>Carousel</h6></a>
         </div>
      </div>
     </div>
@@ -167,7 +81,7 @@
 
   <section>
   
-    <div class="container" style="height:30vh; margin-top:15vh;">
+    <div class="container" style="height:30vh; margin-top:10vh;">
       <hr>
       <h3>Upload Video </h3><br><br>
       <form method="post" action="{% url 'uploadvideo' %}">
@@ -185,5 +99,7 @@
 
   
   <!--======end hero====-->
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

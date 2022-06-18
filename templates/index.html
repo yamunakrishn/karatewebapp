@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load embed_video_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,6 +27,24 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+
+  <style>
+    #btnsort{
+      border: none;
+      font-size: 14px;
+      
+      font-weight:500px;
+    }
+    #btnsort:hover{
+      background-color:#18d26e;
+      color: white;
+      transition: 1s ease-in-out;
+      font-weight:500px;
+    }
+
+  </style>
 
   <!-- =======================================================
   * Template Name: BizPage - v5.8.0
@@ -36,7 +54,7 @@
   ======================================================== -->
 </head>
 
-<body>
+<body >
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center header-transparent">
@@ -46,7 +64,9 @@
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
           <!--<h1 class="logo"><a href="index.html">BizPage</a></h1>-->
           <!-- Uncomment below if you prefer to use an image logo -->
-          <a href="index.html" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
+          <a href="#" class="logo1" >
+            <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90%;width:40px; height:40px;">
+          </a>
 
           <nav id="navbar" class="navbar">
             <ul>
@@ -79,7 +99,7 @@
             <div class="carousel-container">
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">We are professional</h2>
-                <p class="animate__animated animate__fadeInUp">We provide the best classes to build the future,</p>
+                <p class="animate__animated animate__fadeInUp">We provide the best classes and services.</p>
                 <a href="#" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
               </div>
             </div>
@@ -122,15 +142,9 @@
           <p>KMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA. Black Belt Karate International (BBKI INDIA SHOTOKAN) was established in India by Shihan Bonnie Roberts from Sri Lanka in 1975. In 2000 we invited Shihan Sasaki Toshiatsu to India and BBKI INDIA was renamed as JKMO INDIA.</p>
         </header>
 
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="about-col "style="width:1300px; height:400px;">
-    
-              
-              
-              <!--
-                src="https://www.youtube.com/embed/ksibrix7uU0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-              -->
-              
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200" style="width:100% ; height:auto;">
+            <div class="about-col" style="width:100%; height:400px;">
+              {% video vids.video '100% x 100%' %}
             </div>
           </div>
 
@@ -149,24 +163,53 @@
         <div class="row" data-aos="fade-up" data-aos-delay="100">
         <div class=" col-lg-12">
           <ul id="portfolio-flters">
-            <li class="filter-active"><a href="{% url 'load_home_page' %}" >All</a></li>
+            <li class="btn"><button id="btnsort" class="btn" style="height:40px;width:50px;"><b>ALL</b></button></li><input type ="hidden"value="0" id=sortimg >
+            
           {% for folder in folders %}
-            <li><button class="btn" id="sort">{{folder.folder_name}}</button></li>
+            <li class="btn"><button class="btn" style="height:49px;width:200px;" id="btnsort" data-sid="{{folder.id}}" ><b>{{folder.folder_name}}</b></button></li>
           {% endfor %}
           </ul>
         </div>
       </div>
+
+      <script>
+        // image sort
+        $("#portfolio-flters").on("click","#btnsort",function(e){
+          e.preventDefault();
+          console.log(' clickeed for sort.')
+          let id=$(this).attr("data-sid");
+          if (id==undefined){
+            id=0;
+          }
+          $("#sortimg").val(id);
+          console.log(id);
+          mydata={fid:id}
+          $.ajax({
+             url : "{% url 'sort_img' %}",
+             method :"POST",
+             data : mydata,
+             success :function(data){
+              
+                  $("#sortimgs").html(data); 
+            }
+          });
+        });
+
+      </script>
+
+
       
-      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" id="sortimgs">
         {% for img in folimgs %}
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="col-lg-4 col-md-6 portfolio-item"  >
           
             <div class="portfolio-wrap">
            
-            <figure>
+            <figure >
+              
               {% if img.image_url %}
-                <img src="{{ img.image_url.url}} " class="img-fluid" alt="">
-                <a href="{{ img.image_url.url}} " data-lightbox="portfolio"  class="link-preview portfolio-lightbox"><i class="bi bi-plus"></i></a>
+                <img src="{{ img.image_url.url}} " class="img-fluid" alt="" style="width:100%;height:100%;">
+                <a href="{{ img.image_url.url}} "  data-lightbox="portfolio"  class="link-preview portfolio-lightbox" style="padding-right:95px;width:10%;height:18%;"><i class="bi bi-plus" style="padding-left:95px;"></i></a>
               {% endif %}
               </figure>
             
@@ -176,9 +219,34 @@
         {% endfor %}
         
       </div>
+      <div class="container btn" id="imagesload">
+       <a><button class="btn btn-primary rounded-pill p-2"id="moreimgs" style="width:25vh ;">More Images</button></a>
+      </div>
       
       </div>
     </section><!-- End Portfolio Section -->
+    <script>
+      $("#imagesload").on("click","#moreimgs",function(e){
+        e.preventDefault();
+        console.log('button clicked for more images.')
+        let id =$("#sortimg").val();
+        console.log(id)
+        mydata={fimgid:id}
+          $.ajax({
+             url : "{% url 'moreimgs' %}",
+             method :"POST",
+             data : mydata,
+             success :function(data){
+              console.log(data)
+              $("#sortimgs").html(data); 
+                 
+            }
+          });
+  
+      });
+    </script>
+
+    
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="section-bg">
@@ -186,7 +254,7 @@
 
         <div class="section-header">
           <h3>Contact Us</h3>
-          <p>Contact us on:</p>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
         </div>
 
         <div class="row contact-info">
@@ -259,7 +327,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <a href="index.html" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ; width:100px; height:100px;"></a>
+            <a href="index.html" class="logo1"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ; width:100px; height:100px;"></a>
             <br><br><p>JKMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA.</p><br><br>
           </div>
 
@@ -331,7 +399,8 @@
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
   <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+  
   
 
   <!-- Template Main JS File -->

@@ -15,13 +15,14 @@ body {
 }
 
 a {
-  color: #18d26e;
-  transition: 0.5s;
+  color: #0b0b0b;
+  transition: 0.3s;
   text-decoration: none;
 }
 
 a:hover, a:active, a:focus {
-  color: #18d36e;
+  color: #e3f0ea;
+  font-weight:500;
   outline: none;
   text-decoration: none;
 }
@@ -129,14 +130,12 @@ h1, h2, h3, h4, h5, h6 {
   height: 60px;
 }
 #header .logo {
-  font-size: 34px;
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 3px;
   padding-left: 10px;
-  border-left: 4px solid #18d26e;
 }
 #header .logo a {
   color: #fff;
@@ -617,16 +616,16 @@ section {
   padding: 10px 20px;
   font-size: 12px;
   line-height: 20px;
-  color: #0e0d0d;
+  color: #666666;
   border-radius: 4px;
   text-transform: uppercase;
-  background: rgb(238, 243, 240);
+  background: #fff;
   margin-bottom: 5px;
   transition: all 0.3s ease-in-out;
 }
 #portfolio #portfolio-flters li:hover, #portfolio #portfolio-flters li.filter-active {
-  background: #6565eb;
-  color: rgb(247, 251, 249);
+  background: #18d26e;
+  color: #fff;
 }
 #portfolio #portfolio-flters li:last-child {
   margin-right: 0;
@@ -634,24 +633,24 @@ section {
 #portfolio .portfolio-wrap {
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   transition: 0.3s;
+  margin-top:5px;
 }
 #portfolio .portfolio-wrap:hover {
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.16);
 }
 #portfolio .portfolio-item {
   position: relative;
-  height: 360px;
+  height: 290px;
   overflow: hidden;
 }
 #portfolio .portfolio-item figure {
-  background: #000;
+  background: rgb(253, 251, 251);
   overflow: hidden;
   height: 240px;
   position: relative;
   border-radius: 4px 4px 0 0;
   margin: 0;
 }
-
 #portfolio .portfolio-item figure:hover img {
   opacity: 0.4;
   transition: 0.3s;
@@ -674,9 +673,11 @@ section {
   font-size: 22px;
   color: #333;
   line-height: 0;
+  
 }
 #portfolio .portfolio-item figure .link-preview:hover, #portfolio .portfolio-item figure .link-details:hover {
   background: #18d26e;
+  
 }
 #portfolio .portfolio-item figure .link-preview:hover i, #portfolio .portfolio-item figure .link-details:hover i {
   color: #fff;
@@ -715,7 +716,7 @@ section {
   color: #333;
 }
 #portfolio .portfolio-item .portfolio-info h4 a:hover {
-  color: #b6cdc1;
+  color: #18d26e;
 }
 #portfolio .portfolio-item .portfolio-info p {
   padding: 0;
@@ -733,7 +734,8 @@ section {
   padding-top: 40px;
 }
 .portfolio-details .portfolio-details-slider img {
-  width: 100%;
+  width: 80%;
+  height:80%;
 }
 .portfolio-details .portfolio-details-slider .swiper-pagination {
   margin-top: 20px;
@@ -779,7 +781,6 @@ section {
 .portfolio-details .portfolio-description p {
   padding: 0;
 }
-
 
 /* Contact Section
 --------------------------------*/
