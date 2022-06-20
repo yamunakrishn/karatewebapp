@@ -683,11 +683,11 @@ section {
   color: #fff;
 }
 #portfolio .portfolio-item figure .link-preview {
-  left: calc(50% - 38px);
+  left: calc(70% - 98px);
   top: calc(50% - 18px);
 }
 #portfolio .portfolio-item figure .link-details {
-  right: calc(50% - 38px);
+  right: calc(70% - 98px);
   top: calc(50% - 18px);
 }
 #portfolio .portfolio-item figure:hover .link-preview {

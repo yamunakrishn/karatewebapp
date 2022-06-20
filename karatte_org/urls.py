@@ -22,6 +22,7 @@ urlpatterns =[ path('',views.load_home_page,name='load_home_page'),
             
                path('adminlogin',views.adminlogin,name='adminlogin'),
                path('changepassword',views.changepassword,name='changepassword'),
+               
 
                path('login',views.login,name='login'),
                path('load_admin_home',views.load_admin_home,name='load_admin_home'),# admin load home page
